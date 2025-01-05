@@ -2,6 +2,7 @@
 #include<Windows.h>
 
 /*
+ step - 1 SetConsoleCursorPosition함수
 void go(int x, int y)
 {
 	COORD pos = { x, y }; //COORD 구조체는 커서 위치를 지정하기 위해 사용되는 Windows에서 정의된 구조체이다
@@ -25,21 +26,23 @@ int main()
 	go(x, y);
 	printf("*");
 }
-*/
 
+
+//step - 2 SetConsoleCursorInfo함수 
 void Visible(int visible)
 {
-	CONSOLE_CURSOR_INFO ci = { 1,visible };
+	CONSOLE_CURSOR_INFO ci = { 1,visible }; //커서 두께의 비율(1~100)값이나 windows10 이상부터는 커서의 두께 차이가 안남
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &ci);
 }
 
 int main(void)
 {
-	Visible(1);
+	Visible(1); // 커서 보이기
 	printf("test \n");
 	Sleep(2000);
-	Visible(0);
+	Visible(0); //커서 안보이기
 	printf("test \n");
 	Sleep(2000);
 
 }
+*/
