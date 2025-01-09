@@ -49,7 +49,7 @@ int main()
 	srand(time(NULL));
 	char arr[3][4][3];
 	int total = 0;
-	int sum[3] = {0};
+	int sum[3] = {0}; //int sum[3]; 선언과 동시에 초기화 리스트 없이 값을 주입하는 것은 불가능하다 > 메모리에 쓰레기 값이 존재함으로 초기화를 해야된다.
 
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 4; j++)
