@@ -2,18 +2,17 @@
 #include<Windows.h>
 
 /*
- step - 1 SetConsoleCursorPositionÇÔ¼ö
+ step - 1 SetConsoleCursorPositioní•¨ìˆ˜
 void go(int x, int y)
 {
-	COORD pos = { x, y }; //COORD ±¸Á¶Ã¼´Â Ä¿¼­ À§Ä¡¸¦ ÁöÁ¤ÇÏ±â À§ÇØ »ç¿ëµÇ´Â Windows¿¡¼­ Á¤ÀÇµÈ ±¸Á¶Ã¼ÀÌ´Ù
+	COORD pos = { x, y }; //COORD êµ¬ì¡°ì²´ëŠ” ì»¤ì„œ ìœ„ì¹˜ë¥¼ ì§€ì •í•˜ê¸° ìœ„í•´ ì‚¬ìš©ë˜ëŠ” Windowsì—ì„œ ì •ì˜ëœ êµ¬ì¡°ì²´ì´ë‹¤
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 	
-	//STD_OUTPUT_HANDLE Ç¥ÁØ Ãâ·Â ÀåÄ¡(ÄÜ¼Ö)¿¡ ´ëÇÑ ½Äº°ÀÚÀÌ´Ù > GetStdHandle ÇÔ¼ö¿¡ ÀÎÀÚ·Î Àü´Þ
-	//GetStdHandle ÄÜ¼ÖÀÇ Ãâ·ÂÀ» Á¦¾îÇÒ ¼ö ÀÖ´Â ÇîµéÀ» ¾ò´Â´Ù > ÄÜ¼Ö ÀÛ¾÷À» ÇÒ ¼ö ÀÖ´Â ±ÇÇÑÀ» Á¦°ø
-	//ÇÚµéÀ» ÅëÇØ ½ÇÁ¦·Î ÄÜ¼Ö¿¡ ÅØ½ºÆ®¸¦ Ãâ·ÂÇÏ°Å³ª, Ä¿¼­¸¦ ÀÌµ¿ÇÏ´Â µîÀÇ ÀÛ¾÷À» ¼öÇà 
+	//STD_OUTPUT_HANDLE í‘œì¤€ ì¶œë ¥ ìž¥ì¹˜(ì½˜ì†”)ì— ëŒ€í•œ ì‹ë³„ìžì´ë‹¤ > GetStdHandle í•¨ìˆ˜ì— ì¸ìžë¡œ ì „ë‹¬
+	//GetStdHandle ì½˜ì†”ì˜ ì¶œë ¥ì„ ì œì–´í•  ìˆ˜ ìžˆëŠ” í—¨ë“¤ì„ ì–»ëŠ”ë‹¤ > ì½˜ì†” ìž‘ì—…ì„ í•  ìˆ˜ ìžˆëŠ” ê¶Œí•œì„ ì œê³µ
+	//í•¸ë“¤ì„ í†µí•´ ì‹¤ì œë¡œ ì½˜ì†”ì— í…ìŠ¤íŠ¸ë¥¼ ì¶œë ¥í•˜ê±°ë‚˜, ì»¤ì„œë¥¼ ì´ë™í•˜ëŠ” ë“±ì˜ ìž‘ì—…ì„ ìˆ˜í–‰ 
 
-	//SetConsoleCursorPosition ÇÚµéÀ» ÅëÇØ ÄÜ¼Ö Ã¢¿¡ ´ëÇÑ Á¦¾î ±ÇÇÑÀ» °®°í, ÇØ´ç ÇÚµé¿¡ ¿¬°áµÈ 
-	//  ÄÜ¼Ö Ã¢¿¡¼­ Ä¿¼­ÀÇ À§Ä¡¸¦ º¯°æÇÏ´Â µîÀÇ ÀÛ¾÷À» ÇÒ ¼ö ÀÖ°Ô µÊ
+	//SetConsoleCursorPosition í•¸ë“¤ì„ í†µí•´ ì½˜ì†” ì°½ì— ëŒ€í•œ ì œì–´ ê¶Œí•œì„ ê°–ê³ , í•´ë‹¹ í•¸ë“¤ì— ì—°ê²°ëœ ì½˜ì†” ì°½ì—ì„œ ì»¤ì„œì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½í•˜ëŠ” ë“±ì˜ ìž‘ì—…ì„ í•  ìˆ˜ ìžˆê²Œ ë¨
 	
 	
 }
@@ -28,19 +27,19 @@ int main()
 }
 
 
-//step - 2 SetConsoleCursorInfoÇÔ¼ö 
+//step - 2 SetConsoleCursorInfoí•¨ìˆ˜ 
 void Visible(int visible)
 {
-	CONSOLE_CURSOR_INFO ci = { 1,visible }; //Ä¿¼­ µÎ²²ÀÇ ºñÀ²(1~100)°ªÀÌ³ª windows10 ÀÌ»óºÎÅÍ´Â Ä¿¼­ÀÇ µÎ²² Â÷ÀÌ°¡ ¾È³²
+	CONSOLE_CURSOR_INFO ci = { 1,visible }; //ì»¤ì„œ ë‘ê»˜ì˜ ë¹„ìœ¨(1~100)ê°’ì´ë‚˜ windows10 ì´ìƒë¶€í„°ëŠ” ì»¤ì„œì˜ ë‘ê»˜ ì°¨ì´ê°€ ì•ˆë‚¨
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &ci);
 }
 
 int main(void)
 {
-	Visible(1); // Ä¿¼­ º¸ÀÌ±â
+	Visible(1); // ì»¤ì„œ ë³´ì´ê¸°
 	printf("test \n");
 	Sleep(2000);
-	Visible(0); //Ä¿¼­ ¾Èº¸ÀÌ±â
+	Visible(0); //ì»¤ì„œ ì•ˆë³´ì´ê¸°
 	printf("test \n");
 	Sleep(2000);
 
