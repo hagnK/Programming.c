@@ -8,38 +8,40 @@
 int main()
 {
 	
-	// step 1 - ¼öÇĞ ÇÔ¼ö
+	// step 1 - ìˆ˜í•™ í•¨ìˆ˜
 	double num;
 
-	printf("1°³ÀÇ ½Ç¼ö ");
+	printf("1ê°œì˜ ì‹¤ìˆ˜ ");
 	scanf_s("%lf", &num);
 
-	printf("Àı´ñ°ª : %-10.6f \n", fabs(num));
-	printf("¹İ¿Ã¸²°ª : %-10.6f \n", round(num));
-	printf("sin°ª : %-10.6f \n", sin(num));
-	printf("log°ª : %-10.6f \n", log(num));  
-	printf("3½Â °ª : %-10.6f \n", pow(num,3));
+	printf("ì ˆëŒ“ê°’ : %-10.6f \n", fabs(num));
+	printf("ë°˜ì˜¬ë¦¼ê°’ : %-10.6f \n", round(num));
+	printf("sinê°’ : %-10.6f \n", sin(num));
+	printf("logê°’ : %-10.6f \n", log(num));  
+	printf("3ìŠ¹ ê°’ : %-10.6f \n", pow(num,3));
 
-	// step 2 - system ÇÔ¼ö
-
+	// step 2 - system í•¨ìˆ˜
+ 
+        system("mode CON: COLS=10 LINES=5"); //ë„ìŠ¤ì°½ í¬ê¸°ì˜ ë³€ê²½ 
+	
 	for (int i = 10; i >= 0; i--)
 	{
 		system("cls");
 		printf("%d", i);
-		Sleep(1000); // 1000¹Ğ¸®ÃÊ(1ÃÊ) µ¿¾È ½ÇÇà ¸ØÃã
+		Sleep(1000); // 1000ë°€ë¦¬ì´ˆ(1ì´ˆ) ë™ì•ˆ ì‹¤í–‰ ë©ˆì¶¤
 	}
 	
-	// step 3 - clock ÇÔ¼ö
+	// step 3 - clock í•¨ìˆ˜
 
-	//clock_t Å¸ÀÔÀº CPU ½Ã°£À» ³ªÅ¸³ª´Âµ¥ »ç¿ë > ³»ºÎÀûÀ¸·Î ½Ã½ºÅÛÀÇ Å¬·Ï Æ½(clock tick)À» ÀúÀå >´ë½Å ¿î¿µ Ã¼Á¦¿¡ µû¶ó ´Ù¸§
-   // clock() ÇÔ¼ö´Â ÇÁ·Î±×·¥ÀÌ ½ÃÀÛ µÈ ÀÌÈÄ °æ°úÇÑ CPU ½Ã°£À» ¹İÈ¯ > ¹İÈ¯°ªÀº clock_t Å¸ÀÔÀÇ °ªÀ¸·Î, "Å¬·Ï Æ½" ´ÜÀ§·Î Ç¥Çö
+	//clock_t íƒ€ì…ì€ CPU ì‹œê°„ì„ ë‚˜íƒ€ë‚˜ëŠ”ë° ì‚¬ìš© > ë‚´ë¶€ì ìœ¼ë¡œ ì‹œìŠ¤í…œì˜ í´ë¡ í‹±(clock tick)ì„ ì €ì¥ >ëŒ€ì‹  ìš´ì˜ ì²´ì œì— ë”°ë¼ ë‹¤ë¦„
+   // clock() í•¨ìˆ˜ëŠ” í”„ë¡œê·¸ë¨ì´ ì‹œì‘ ëœ ì´í›„ ê²½ê³¼í•œ CPU ì‹œê°„ì„ ë°˜í™˜ > ë°˜í™˜ê°’ì€ clock_t íƒ€ì…ì˜ ê°’ìœ¼ë¡œ, "í´ë¡ í‹±" ë‹¨ìœ„ë¡œ í‘œí˜„
 	
-	clock_t initial_clock = clock(); //ÃÊ±â clock
+	clock_t initial_clock = clock(); //ì´ˆê¸° clock
 	int i = 11;
 
 	while (i > 0)
 	{
-		clock_t current_clock = clock(); //ÇöÀç clock 
+		clock_t current_clock = clock(); //í˜„ì¬ clock 
 		if (current_clock - initial_clock >= 1000)
 		{
 			i--;
@@ -48,17 +50,17 @@ int main()
 			initial_clock = clock();
 		}
 	}
-	// step 3-1  Å¸ÀÌ¸Ó 
+	// step 3-1  íƒ€ì´ë¨¸ 
 	clock_t start = clock();
 	for (;;)
 	{
 		clock_t end = clock();
-		double time =(end - start) / CLOCKS_PER_SEC; // CLOCKS_PER_SEC ÃÊ ´ÜÀ§·Î º¯È¯ > Áï ÃÊ´ç Å¬·Ï Æ½ÀÇ °³¼ö¸¦ Á¤ÀÇ 
+		double time =(end - start) / CLOCKS_PER_SEC; // CLOCKS_PER_SEC ì´ˆ ë‹¨ìœ„ë¡œ ë³€í™˜ > ì¦‰ ì´ˆë‹¹ í´ë¡ í‹±ì˜ ê°œìˆ˜ë¥¼ ì •ì˜ 
 		printf("%0.3f \n", time);
 		system("cls");
 	} 
 	
-	// step 4 - _kbhitÇÔ¼ö¿Í _getchÇÔ¼ö
+	// step 4 - _kbhití•¨ìˆ˜ì™€ _getchí•¨ìˆ˜
 	clock_t initial_clock = clock(); //
 	int i = 1;
 	int go = 1;
@@ -79,9 +81,9 @@ int main()
 				initial_clock = clock();
 			}
 		}
-		if (_kbhit()) // ÄÜ¼Ö ÀÔ·Â ¹öÆÛ¿¡ Å°º¸µå ÀÔ·ÂÀÌ ÀÖ´ÂÁö È®ÀÎÇÏ´Â ÇÔ¼ö
+		if (_kbhit()) // ì½˜ì†” ì…ë ¥ ë²„í¼ì— í‚¤ë³´ë“œ ì…ë ¥ì´ ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
 		{
-			if (_getch() == 'p') //ÄÜ¼Ö¿¡¼­ Áï½Ã ÀÔ·ÂµÈ Å° °ªÀ» ¹İÈ¯(ASCII)
+			if (_getch() == 'p') //ì½˜ì†”ì—ì„œ ì¦‰ì‹œ ì…ë ¥ëœ í‚¤ ê°’ì„ ë°˜í™˜(ASCII)
 				go = (go + 1) % 2;
 		}
 	}
