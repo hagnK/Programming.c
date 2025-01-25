@@ -1,6 +1,2 @@
-print("15")
-print("15")
-print("15")
-print("15")
-print("15")
-print("15")
+print("Hellow python")
+10 +20
